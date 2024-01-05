@@ -15,7 +15,7 @@ export function avatar(input: { principal: string } | { aid: string }): string {
     throw new Error('Either "principal" or "aid" must be provided.');
   }
 
-  const svg = `<svg height="100" width="100"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="9%" style="stop-color:#${account_id.substring(0,6)}"/><stop offset="35%" style="stop-color:#${account_id.substring(6,12)}"/><stop offset="65%" style="stop-color:#${account_id.substring(account_id.length - 12, account_id.length - 6)}"/><stop offset="91%" style="stop-color:#${account_id.substring(account_id.length - 6)}"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#a)"/></svg>`
+  const svg = `<svg viewBox="0 0 100 100" width="100%" height="100%"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="9%" style="stop-color:#${account_id.substring(0,6)}"/><stop offset="35%" style="stop-color:#${account_id.substring(6,12)}"/><stop offset="65%" style="stop-color:#${account_id.substring(account_id.length - 12, account_id.length - 6)}"/><stop offset="91%" style="stop-color:#${account_id.substring(account_id.length - 6)}"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#a)"/></svg>`
 
   return svg;
 }

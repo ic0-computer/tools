@@ -6,7 +6,7 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npx tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "keywords": [
     "ic0.computer",
