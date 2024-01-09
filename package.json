@@ -6,7 +6,6 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "npx tsc",
-    "test": "node test.js"
   },
   "keywords": [
     "ic0.computer",
