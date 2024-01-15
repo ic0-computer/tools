@@ -19,3 +19,7 @@ export function avatar(input: { principal: string } | { aid: string }): string {
 
   return svg;
 }
+
+export function p_to_aid(principal: string): string {
+  return AccountIdentifier.fromPrincipal({ principal: Principal.fromText(principal) }).toHex();
+}
