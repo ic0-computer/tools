@@ -26,7 +26,6 @@ console.log('Principal Avatar:', principalAvatar);
 // Example with aid
 const accountIdAvatar = avatar({ aid: 'de243e0e94838b2eb7d58ac9fc4ddb4988665e4360451c51a76bda8a3f7e0b1f' });
 console.log('Account ID Avatar:', accountIdAvatar);
-
 ```
 
 ## Sample Output
