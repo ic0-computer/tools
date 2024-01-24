@@ -30,6 +30,7 @@ export function avatar(input: { principal: string } | { aid: string }): string {
   return svg;
 }
 
-export function p2Aid(principal: string): string {
-  return AccountIdentifier.fromPrincipal({ principal: Principal.fromText(principal) }).toHex();
+export function p2Aid(principal: Principal | string): string {
+  const principalInstance = typeof principal === 'string' ? Principal.fromText(principal) : principal;
+  return AccountIdentifier.fromPrincipal({ principal: principalInstance }).toHex();
 }
