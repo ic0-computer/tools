@@ -1,28 +1,29 @@
 {
   "name": "@ic0-computer/tools",
   "version": "0.0.1",
-  "description": "Tooling provided by ic0.computer",
-  "type": "module",
+  "author": "",
   "main": "src/index.ts",
-  "scripts": {
-    "build": "npx tsc"
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   },
+  "description": "Tooling provided by ic0.computer",
   "keywords": [
     "ic0.computer",
     "ic0",
     "internet computer",
     "avatar"
   ],
-  "author": "",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "ts-node": "^10.9.2",
-    "typescript": "^5.3.3"
+  "scripts": {
+    "build": "npx tsc"
   },
+  "type": "module",
   "dependencies": {
     "@dfinity/identity-secp256k1": "^0.21.4",
-    "@dfinity/ledger-icp": "^2.1.1",
+    "@dfinity/ledger-icp": "^2.1.2",
     "@dfinity/principal": "^0.20.2",
+    "@dfinity/utils": "^2.1.0",
     "bip39": "^3.1.0",
     "ethereum-cryptography": "^2.1.3"
   }
