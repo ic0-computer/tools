@@ -5,12 +5,15 @@ import { AccountIdentifier } from '@dfinity/ledger-icp';
 import { Principal } from '@dfinity/principal';
 
 // Create an SVG avatar from a principal or account id
-export function avatar(input: { principal: string } | { aid: string }): string {
+export function avatar(input: { principal_string: string } | { aid: string } | { principal: Principal }): string {
   let account_id: string = '';
 
-  if ('principal' in input) {
+  if ('principal_string' in input) {
+    // handle principal_string case
+    account_id = AccountIdentifier.fromPrincipal({ principal: Principal.fromText(input.principal_string) }).toHex();
+  } else if ('principal' in input) {
     // handle principal case
-    account_id = AccountIdentifier.fromPrincipal({ principal: Principal.fromText(input.principal) }).toHex();
+    account_id = AccountIdentifier.fromPrincipal({ principal: input.principal }).toHex();
   } else if ('aid' in input) {
     // handle aid case
     account_id = input.aid;
@@ -18,7 +21,7 @@ export function avatar(input: { principal: string } | { aid: string }): string {
     throw new Error('Either "principal" or "aid" must be provided.');
   }
 
-  const svg = `<svg viewBox="0 0 100 100" width="100%" height="100%"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="9%" style="stop-color:#${account_id.substring(
+  const svg = `<svg viewBox="0 0 100 100" width="100%" height="100%"><defs><radialGradient id="${account_id.substring(0, 6,)}" cx="50%" cy="50%" r="50%" fx="50%" fy="50%"><stop offset="9%" style="stop-color:#${account_id.substring(
     0,
     6,
   )}"/><stop offset="35%" style="stop-color:#${account_id.substring(
@@ -29,7 +32,7 @@ export function avatar(input: { principal: string } | { aid: string }): string {
     account_id.length - 6,
   )}"/><stop offset="91%" style="stop-color:#${account_id.substring(
     account_id.length - 6,
-  )}"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#a)"/></svg>`;
+  )}"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#${account_id.substring(0, 6,)})"/></svg>`;
 
   return svg;
 }
